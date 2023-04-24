@@ -1,0 +1,8 @@
+
+body{
+    background-color: gainsboro;
+}
+
+.taskCompleted{
+    flex-direction: row-reverse;
+}

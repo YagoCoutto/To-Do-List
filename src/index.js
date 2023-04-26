@@ -16,27 +16,31 @@ sendButton.addEventListener("click", function (e) {
             console.log(item)
         }
 
-        const newTaskCheckbox = document.createElement("input")
-        newTaskCheckbox.type = "checkbox"
-        newTaskCheckbox.name = "taskCompleted";
-        newTaskCheckbox.classList.add("taskCompleted");
+        const completeTask = document.createElement("input")
+        completeTask.type = "button"
+        completeTask.value = "Completed"
+        completeTask.classList.add("taskCompleted");
+
+        const cancelTask = document.createElement("input")
+        cancelTask.type = "button"
+        cancelTask.value = "X"
 
         const newParagraph = document.createElement("p")
         newParagraph.textContent = item
-        newParagraph.appendChild(newTaskCheckbox)
+        newParagraph.classList.add("paragraph");
+        newParagraph.appendChild(completeTask)
 
-        return taskList.appendChild(newParagraph)
+        return taskList.appendChild(newParagraph) // como retornar taskCancel?
     }
     displayTheTasks()
 
-    let taskCompleted = document.querySelectorAll('[type="checkbox"]')
+    let taskCompleted = document.querySelectorAll('[type="button"]')
+    let task_P = document.querySelectorAll('.paragraph')
     for (let i = 0; i < taskCompleted.length; i++) {
-        taskCompleted[i].addEventListener("change", function () {
-            if (taskCompleted[i].checked === true) {
-                console.log('truee')
-            } else {
-                console.log('falsee')
-            }
+        taskCompleted[i].addEventListener("click", function () {
+            console.log(taskCompleted[i])
+            task_P[i].style.backgroundColor = '#85FFAD';
+            //task_P[i].remove()
 
         })
     }

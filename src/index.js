@@ -16,20 +16,30 @@ sendButton.addEventListener("click", function (e) {
             console.log(item)
         }
 
-        function crateItems() {
-            const newTaskCheckbox = document.createElement("input")
-            newTaskCheckbox.type = "checkbox"
-            newTaskCheckbox.name = "taskCompleted";
-            newTaskCheckbox.classList.add("taskCompleted");
+        const newTaskCheckbox = document.createElement("input")
+        newTaskCheckbox.type = "checkbox"
+        newTaskCheckbox.name = "taskCompleted";
+        newTaskCheckbox.classList.add("taskCompleted");
 
-            const newParagraph = document.createElement("p")
-            newParagraph.textContent = item
-            newParagraph.appendChild(newTaskCheckbox)
+        const newParagraph = document.createElement("p")
+        newParagraph.textContent = item
+        newParagraph.appendChild(newTaskCheckbox)
 
-            return taskList.appendChild(newParagraph)
-        }
-        crateItems()
-
+        return taskList.appendChild(newParagraph)
     }
     displayTheTasks()
+
+    let taskCompleted = document.querySelectorAll('[type="checkbox"]')
+    for (let i = 0; i < taskCompleted.length; i++) {
+        taskCompleted[i].addEventListener("change", function () {
+            if (taskCompleted[i].checked === true) {
+                console.log('truee')
+            } else {
+                console.log('falsee')
+            }
+
+        })
+    }
+
+
 })

@@ -16,6 +16,13 @@ sendButton.addEventListener("click", function (e) {
             console.log(item)
         }
 
+        const div = document.createElement("div")
+        div.classList.add("div")
+
+        const description = document.createElement("p")
+        description.textContent = item
+        description.classList.add("paragraph");
+
         const completeTask = document.createElement("input")
         completeTask.type = "button"
         completeTask.value = "Completed"
@@ -24,24 +31,29 @@ sendButton.addEventListener("click", function (e) {
         const cancelTask = document.createElement("input")
         cancelTask.type = "button"
         cancelTask.value = "X"
-
-        const newParagraph = document.createElement("p")
-        newParagraph.textContent = item
-        newParagraph.classList.add("paragraph");
-        newParagraph.appendChild(completeTask)
-
-        return taskList.appendChild(newParagraph) // como retornar taskCancel?
+        cancelTask.classList.add("cancelTask");
+        
+        div.append(description)
+        div.append(completeTask)
+        div.append(cancelTask)
+        taskList.append(div)
+        
     }
     displayTheTasks()
 
-    let taskCompleted = document.querySelectorAll('[type="button"]')
+    let div = document.querySelectorAll('.div')
     let task_P = document.querySelectorAll('.paragraph')
+    let taskCompleted = document.querySelectorAll('.taskCompleted')
+    let cancelTask = document.querySelectorAll('.cancelTask')
     for (let i = 0; i < taskCompleted.length; i++) {
         taskCompleted[i].addEventListener("click", function () {
             console.log(taskCompleted[i])
             task_P[i].style.backgroundColor = '#85FFAD';
-            //task_P[i].remove()
-
+        })
+    }
+    for (let j = 0; j < cancelTask.length; j++ ){
+        cancelTask[j].addEventListener("click", function(){
+            div[j].remove()
         })
     }
 

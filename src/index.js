@@ -23,6 +23,9 @@ sendButton.addEventListener("click", function (e) {
         description.textContent = item
         description.classList.add("paragraph");
 
+        const divBtt = document.createElement("divBtt")
+        divBtt.classList.add("divBtt")
+
         const completeTask = document.createElement("input")
         completeTask.type = "button"
         completeTask.value = "Completed"
@@ -30,32 +33,40 @@ sendButton.addEventListener("click", function (e) {
 
         const cancelTask = document.createElement("input")
         cancelTask.type = "button"
-        cancelTask.value = "X"
+        cancelTask.value = "Delete"
         cancelTask.classList.add("cancelTask");
-        
+
         div.append(description)
-        div.append(completeTask)
-        div.append(cancelTask)
-        taskList.append(div)
-        
+        divBtt.append(completeTask)
+        divBtt.append(cancelTask)
+        if (description.textContent != '') {
+            taskList.append(div)
+            taskList.append(divBtt)
+        }
+
     }
     displayTheTasks()
 
-    let div = document.querySelectorAll('.div')
-    let task_P = document.querySelectorAll('.paragraph')
-    let taskCompleted = document.querySelectorAll('.taskCompleted')
-    let cancelTask = document.querySelectorAll('.cancelTask')
-    for (let i = 0; i < taskCompleted.length; i++) {
-        taskCompleted[i].addEventListener("click", function () {
-            console.log(taskCompleted[i])
-            task_P[i].style.backgroundColor = '#85FFAD';
-        })
+    
+    const interactiveButtons = () => {
+        let div = document.querySelectorAll('.div')
+        let divBtt = document.querySelectorAll('.divBtt')
+        let task_P = document.querySelectorAll('.paragraph')
+        let taskCompleted = document.querySelectorAll('.taskCompleted')
+        let cancelTask = document.querySelectorAll('.cancelTask')
+        for (let i = 0; i < taskCompleted.length; i++) {
+            taskCompleted[i].addEventListener("click", function () {
+                task_P[i].classList.remove('paragraph') //configurar
+                task_P[i].style.backgroundColor = '#85FFAD';
+            })
+        }
+        for (let j = 0; j < cancelTask.length; j++) {
+            cancelTask[j].addEventListener("click", function () {
+                div[j].remove()
+                divBtt[j].remove()
+            })
+        }
     }
-    for (let j = 0; j < cancelTask.length; j++ ){
-        cancelTask[j].addEventListener("click", function(){
-            div[j].remove()
-        })
-    }
-
+    interactiveButtons()
 
 })

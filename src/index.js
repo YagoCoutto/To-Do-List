@@ -46,7 +46,6 @@ sendButton.addEventListener("click", function (e) {
 
     }
     displayTheTasks()
-
     
     const interactiveButtons = () => {
         let div = document.querySelectorAll('.div')
@@ -56,8 +55,9 @@ sendButton.addEventListener("click", function (e) {
         let cancelTask = document.querySelectorAll('.cancelTask')
         for (let i = 0; i < taskCompleted.length; i++) {
             taskCompleted[i].addEventListener("click", function () {
-                task_P[i].classList.remove('paragraph') //configurar
-                task_P[i].style.backgroundColor = '#85FFAD';
+                //task_P[i].classList.add("pDisable");
+                //console.log(task_P[i].classList)
+                task_P[i].style.backgroundColor = '#75bde0';
             })
         }
         for (let j = 0; j < cancelTask.length; j++) {

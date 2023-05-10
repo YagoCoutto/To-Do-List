@@ -21,10 +21,10 @@ body main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:var(--F8);
+    background-color: var(--F8);
 }
 
-h1{
+h1 {
     margin-top: 20px;
     color: aliceblue;
 }
@@ -37,16 +37,18 @@ form {
     align-items: center;
     justify-content: space-around;
 }
-#tasks{
+
+#tasks {
     width: 350px;
     height: 30px;
     border: 1px solid;
 }
-#send{
+
+#send {
     width: 40px;
     height: 30px;
     border: 1px solid;
-    background-color:palegreen;
+    background-color: palegreen;
 }
 
 section {
@@ -59,8 +61,12 @@ section {
     align-items: center;
     background-color: var(--75);
     border: 0.5px solid black;
-    box-shadow: 2px 2px 0px 0px black;
+    box-shadow: 6px 6px 10px 0px #b49b6f;
     border-radius: 8px;
+}
+section::-webkit-scrollbar {
+    width: 0px;
+    /* width of the entire scrollbar */
 }
 
 .paragraph {
@@ -93,7 +99,8 @@ section {
 }
 
 .taskCompleted,
-.cancelTask {
+.cancelTask,
+.editTask {
     flex-direction: row-reverse;
     background-color: rgb(156, 207, 248);
     padding: 3px;
@@ -104,3 +111,5 @@ section {
 .cancelTask {
     background-color: rgba(241, 73, 73, 0.671);
 }
+
+
